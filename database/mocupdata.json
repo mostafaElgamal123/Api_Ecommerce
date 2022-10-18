@@ -1,0 +1,6 @@
+{
+    "status":"status of response code",
+    "data":{"key":"data of response"},
+    "error":{"key":"if thier any errors in response "},
+    "message":"success or fail"
+}
