@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use Storage;
 use App\Http\Requests\Api\ProductRequest;
+use App\Http\Requests\Api\ProductUpdateRequest;
+use App\Http\Requests\Api\ProductSearchNameRequest;
+use App\Http\Requests\Api\ProductFilterRequest;
+use Illuminate\Pipeline\Pipeline;
+use App\Filters\Name;
+use App\Filters\CategoryId;
+use App\Filters\MinPriceAndMaxPrice;
+use App\Filters\Offer;
 class ProductApiController extends Controller
 {
     /**
@@ -57,11 +65,11 @@ class ProductApiController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\ProductRequest  $request
+     * @param  \Illuminate\Http\ProductUpdateRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductRequest $request, Product $product)
+    public function update(ProductUpdateRequest $request, Product $product)
     {
         $request->validated();
         $product->update($request->except('token'));
@@ -110,4 +118,31 @@ class ProductApiController extends Controller
             }
          }
     }
+
+    public function SearchProductName(ProductSearchNameRequest $request){
+        $request->validated();
+        $product=Product::where('name','LIKE', '%'.request()->input('name').'%')->get();
+        return response()->json(['data'=>$product]);
+    }
+    public function ProductsAccordingCategory($category_id){
+        $product=Product::where('category_id',$category_id)->get();
+        return response()->json(['data'=>$product]);
+    }
+    public function FilterProducts(ProductFilterRequest $request){
+        $request->validated();
+        $product=app(Pipeline::class)
+                ->send(Product::query())
+                ->through([
+                    CategoryId::class,
+                    MinPriceAndMaxPrice::class,
+                    Name::class,
+                    Offer::class,
+                ])
+                ->thenReturn()
+                ->paginate(6);
+        return response()->json(['data'=>$product]);
+    }
+
 }
+
+
