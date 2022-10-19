@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+use App\Http\Resources\CategoriesResource;
+use App\Http\Resources\CategoriesCollection;
 class CategoryApiController extends Controller
 {
     /**
@@ -15,8 +17,8 @@ class CategoryApiController extends Controller
      */
     public function index()
     {
-        $category=Category::all();
-        return response()->json(['data'=>$category]);
+        $category=Category::paginate(6);
+        return new CategoriesCollection($category);
     }
 
     /**
@@ -32,7 +34,7 @@ class CategoryApiController extends Controller
             'description'       =>'min:3|max:1000',
         ]);
         $category=Category::create($request->all());
-        return response()->json(['data'=>$category]);
+        return new CategoriesResource($category);
     }
 
     /**
@@ -43,8 +45,8 @@ class CategoryApiController extends Controller
      */
     public function show(Category $category)
     {
-        $product=Product::where('category_id',$category->id)->get();
-        return response()->json(['data'=>$product]);
+        $product=Product::where('category_id',$category->id)->paginate(6);
+        return new CategoriesCollection($product);
     }
 
 
@@ -62,7 +64,7 @@ class CategoryApiController extends Controller
             'description'       =>'min:3|max:1000',
         ]);
         $category->update($request->except('token'));
-        return response()->json(['data'=>$category]);
+        return new CategoriesResource($category);
     }
 
     /**
@@ -74,6 +76,6 @@ class CategoryApiController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return response()->json(['data'=>$category]);
+        return response()->json(null, 204);
     }
 }

@@ -26,7 +26,7 @@ class ProductRequest extends FormRequest
         return [
             'name'                =>'required|min:3|max:150',
             'description'         =>'required|min:3|max:100000',
-            'image'               =>'required|image|mimes:webp|max:1000',
+            'image'               =>'required|image|mimes:webp|max:300',
             'price'               =>'required|nullable|regex:/^(\d+(,\d{1,2})?)?$/',
             'offer'               =>'required|nullable|regex:/^(\d+(,\d{1,2})?)?$/',
             'available'           =>'required|',
