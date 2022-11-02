@@ -96,7 +96,7 @@ ___
 {
     "data": "",
     "message": "fail",
-    "code": 200,
+    "code": 422,
     "errors": {
         "name": [
             "The name must be at least 3 characters."
@@ -280,7 +280,7 @@ ___
 {
     "data": "",
     "message": "fail",
-    "code": 200,
+    "code": 422,
     "errors": {
         "min_price": [
             "The min price format is invalid."

@@ -47,7 +47,7 @@ class ProductApiController extends Controller
             'category_id'         =>'required|',
         ]);
         if($validator->fails()){
-            return $this->response('','fail',http_response_code(),$validator->errors());
+            return $this->response('','fail',422,$validator->errors());
         }else{
             if($request->hasFile('image')){
                 $file= $request->file('image');
@@ -58,7 +58,7 @@ class ProductApiController extends Controller
                 $product->image= $path;
                 $product->save();
             }
-            return $this->response(new ProductsResource($product),'success',http_response_code(),'');
+            return $this->response(new ProductsResource($product),'success',201,'');
         }
     }
 
@@ -93,7 +93,7 @@ class ProductApiController extends Controller
             'category_id'         =>'required|',
         ]);
         if($validator->fails()){
-            return $this->response('','fail',http_response_code(),$validator->errors());
+            return $this->response('','fail',422,$validator->errors());
         }else{
             if($request->hasFile('image')){
                 $file= $request->file('image');
@@ -112,7 +112,7 @@ class ProductApiController extends Controller
             }else{
                 $product->update($request->all());
             }
-            return $this->response(new ProductsResource($product),'success',http_response_code(),'');
+            return $this->response(new ProductsResource($product),'success',202,'');
         }
     }
 
@@ -145,7 +145,7 @@ class ProductApiController extends Controller
             'name'=>'required|min:3|max:150',
         ]);
         if($validator->fails()){
-            return $this->response('','fail',http_response_code(),$validator->errors());
+            return $this->response('','fail',422,$validator->errors());
         }else{
             $product=Product::where('name','LIKE', '%'.request()->input('name').'%')->paginate(6);
             return $this->response(ProductsResource::collection($product)->response()->getData(true),'success',http_response_code(),'');
@@ -164,7 +164,7 @@ class ProductApiController extends Controller
             'category_id'         =>'|max:250',
         ]);
         if($validator->fails()){
-            return $this->response('','fail',http_response_code(),$validator->errors());
+            return $this->response('','fail',422,$validator->errors());
         }else{
             $product=app(Pipeline::class)
                 ->send(Product::query())

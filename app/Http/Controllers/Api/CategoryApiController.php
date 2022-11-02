@@ -37,10 +37,10 @@ class CategoryApiController extends Controller
             'description'       =>'min:3|max:1000',
         ]);
         if ($validator->fails()) {
-            return $this->response('','fail',http_response_code(),$validator->errors());
+            return $this->response('','fail',422,$validator->errors());
         }else{
             $category=Category::create($request->all());
-            return $this->response(new CategoriesResource($category),'success',200,'');
+            return $this->response(new CategoriesResource($category),'success',201,'');
         }
     }
 
@@ -71,10 +71,10 @@ class CategoryApiController extends Controller
             'description'       =>'min:3|max:1000',
         ]);
         if ($validator->fails()) {
-            return $this->response('','fail',http_response_code(),$validator->errors());
+            return $this->response('','fail',422,$validator->errors());
         }else{
             $category->update($request->except('token'));
-            return $this->response(new CategoriesResource($category),'success',200,'');
+            return $this->response(new CategoriesResource($category),'success',202,'');
         }
     }
 

@@ -116,7 +116,7 @@ ___
         "updated_at": "2022-11-01T12:43:54.000000Z"
     },
     "message": "success",
-    "code": 200,
+    "code": 201,
     "errors": ""
 }
 </pre>
@@ -148,7 +148,7 @@ ___
 {
     "data": "",
     "message": "fail",
-    "code": 200,
+    "code": 422,
     "errors": {
         "name": [
             "The name field is required."
@@ -195,7 +195,7 @@ ___
         "updated_at": "2022-11-01T12:46:51.000000Z"
     },
     "message": "success",
-    "code": 200,
+    "code": 202,
     "errors": ""
 }
 </pre>
@@ -227,7 +227,7 @@ ___
 {
     "data": "",
     "message": "fail",
-    "code": 200,
+    "code": 422,
     "errors": {
         "name": [
             "The name field is required."
