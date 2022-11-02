@@ -4,9 +4,12 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
-
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use App\Traits\ApiResponse;
 class Handler extends ExceptionHandler
 {
+    use ApiResponse;
     /**
      * A list of the exception types that are not reported.
      *
@@ -34,8 +37,15 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        $this->reportable(function (Throwable $e) {
-            //
+        $this->renderable(function (NotFoundHttpException $e,$request) {
+            if($request->wantsJson()){
+              return $this->response('','fail',404,'object not found');
+            }
+        });
+        $this->renderable(function (MethodNotAllowedHttpException $e,$request) {
+            if($request->wantsJson()){
+              return $this->response('','fail',405,'Method Not Allowed');
+            }
         });
     }
 }
