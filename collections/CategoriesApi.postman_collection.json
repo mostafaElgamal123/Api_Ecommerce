@@ -1,0 +1,556 @@
+{
+	"info": {
+		"_postman_id": "1703258b-728d-46d3-908f-0a8911739f47",
+		"name": "CategoriesApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22647345"
+	},
+	"item": [
+		{
+			"name": "get all categories",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/categories",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"categories"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get all categories",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 10:43:09 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 10:43:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.16"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"0\": {\n        \"data\": [\n            {\n                \"id\": 1,\n                \"name\": \"category 1\",\n                \"description\": \"category\",\n                \"created_at\": \"2022-11-02T10:41:48.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:48.000000Z\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"category 2\",\n                \"description\": \"category\",\n                \"created_at\": \"2022-11-02T10:41:48.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:48.000000Z\"\n            },\n            {\n                \"id\": 3,\n                \"name\": \"category 3\",\n                \"description\": \"category\",\n                \"created_at\": \"2022-11-02T10:41:48.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:48.000000Z\"\n            },\n            {\n                \"id\": 4,\n                \"name\": \"category 4\",\n                \"description\": \"category\",\n                \"created_at\": \"2022-11-02T10:41:49.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:49.000000Z\"\n            },\n            {\n                \"id\": 5,\n                \"name\": \"category 5\",\n                \"description\": \"category\",\n                \"created_at\": \"2022-11-02T10:41:49.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:49.000000Z\"\n            }\n        ],\n        \"links\": {\n            \"first\": \"http://127.0.0.1:8000/api/categories?page=1\",\n            \"last\": \"http://127.0.0.1:8000/api/categories?page=1\",\n            \"prev\": null,\n            \"next\": null\n        },\n        \"meta\": {\n            \"current_page\": 1,\n            \"from\": 1,\n            \"last_page\": 1,\n            \"links\": [\n                {\n                    \"url\": null,\n                    \"label\": \"&laquo; Previous\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/categories?page=1\",\n                    \"label\": \"1\",\n                    \"active\": true\n                },\n                {\n                    \"url\": null,\n                    \"label\": \"Next &raquo;\",\n                    \"active\": false\n                }\n            ],\n            \"path\": \"http://127.0.0.1:8000/api/categories\",\n            \"per_page\": 6,\n            \"to\": 5,\n            \"total\": 5\n        }\n    },\n    \"message\": \"\",\n    \"code\": 200,\n    \"errors\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "store new category",
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/categories",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"categories"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "store new category",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "category 6",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "category 6",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/categories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 10:44:54 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 10:44:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.16"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 6,\n        \"name\": \"category 6\",\n        \"description\": \"category 6\",\n        \"created_at\": \"2022-11-02T10:44:54.000000Z\",\n        \"updated_at\": \"2022-11-02T10:44:54.000000Z\"\n    },\n    \"message\": \"success\",\n    \"code\": 200,\n    \"errors\": \"\"\n}"
+				}
+			]
+		},
+		{
+			"name": "update category",
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"category 1\",\"description\":\"description category 1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/categories/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"categories",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "update category",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "category 1",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/categories/1?_method=put",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"1"
+							],
+							"query": [
+								{
+									"key": "_method",
+									"value": "put"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 12:16:08 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 12:16:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.16"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"category 1\",\n        \"description\": \"description category 1\",\n        \"created_at\": \"2022-11-02T10:41:48.000000Z\",\n        \"updated_at\": \"2022-11-02T12:16:08.000000Z\"\n    },\n    \"message\": \"success\",\n    \"code\": 200,\n    \"errors\": \"\"\n}"
+				}
+			]
+		},
+		{
+			"name": "show category",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/categories/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"categories",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "show category",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/categories/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 10:46:26 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 10:46:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.16"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"0\": {\n        \"data\": [\n            {\n                \"id\": 7,\n                \"name\": \"product 2\",\n                \"description\": \"product\",\n                \"created_at\": \"2022-11-02T10:41:49.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:49.000000Z\"\n            },\n            {\n                \"id\": 8,\n                \"name\": \"product 3\",\n                \"description\": \"product\",\n                \"created_at\": \"2022-11-02T10:41:49.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:49.000000Z\"\n            },\n            {\n                \"id\": 9,\n                \"name\": \"product 4\",\n                \"description\": \"product\",\n                \"created_at\": \"2022-11-02T10:41:49.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:49.000000Z\"\n            },\n            {\n                \"id\": 10,\n                \"name\": \"product 5\",\n                \"description\": \"product\",\n                \"created_at\": \"2022-11-02T10:41:49.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:49.000000Z\"\n            }\n        ],\n        \"links\": {\n            \"first\": \"http://127.0.0.1:8000/api/categories/2?page=1\",\n            \"last\": \"http://127.0.0.1:8000/api/categories/2?page=1\",\n            \"prev\": null,\n            \"next\": null\n        },\n        \"meta\": {\n            \"current_page\": 1,\n            \"from\": 1,\n            \"last_page\": 1,\n            \"links\": [\n                {\n                    \"url\": null,\n                    \"label\": \"&laquo; Previous\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/categories/2?page=1\",\n                    \"label\": \"1\",\n                    \"active\": true\n                },\n                {\n                    \"url\": null,\n                    \"label\": \"Next &raquo;\",\n                    \"active\": false\n                }\n            ],\n            \"path\": \"http://127.0.0.1:8000/api/categories/2\",\n            \"per_page\": 6,\n            \"to\": 4,\n            \"total\": 4\n        }\n    },\n    \"message\": \"\",\n    \"code\": 200,\n    \"errors\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "destroy category",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/categories",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"categories"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "destroy category",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/categories/6",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"6"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 10:46:58 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 10:46:58 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.16"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "57"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 6,\n        \"name\": \"category 6\",\n        \"description\": \"description category 6\",\n        \"created_at\": \"2022-11-02T10:44:54.000000Z\",\n        \"updated_at\": \"2022-11-02T10:46:16.000000Z\"\n    },\n    \"message\": \"deleted\",\n    \"code\": 204,\n    \"errors\": \"\"\n}"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,623 @@
+{
+	"info": {
+		"_postman_id": "56bd3e59-1ea4-4fc6-8d79-f376ee4fbdbf",
+		"name": "ProductApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22647345"
+	},
+	"item": [
+		{
+			"name": "get products",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/products",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get products",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 10:47:12 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 10:47:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.16"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "56"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"0\": {\n        \"data\": [\n            {\n                \"id\": 1,\n                \"name\": \"product 1\",\n                \"description\": \"product\",\n                \"price\": 6000,\n                \"offer\": 3000,\n                \"image\": \"back-2_1627326624.webp\",\n                \"available\": \"yes\",\n                \"category_id\": 1,\n                \"created_at\": \"2022-11-02T10:41:49.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:49.000000Z\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"product 2\",\n                \"description\": \"product\",\n                \"price\": 6000,\n                \"offer\": 3000,\n                \"image\": \"back-2_1627326624.webp\",\n                \"available\": \"yes\",\n                \"category_id\": 1,\n                \"created_at\": \"2022-11-02T10:41:49.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:49.000000Z\"\n            },\n            {\n                \"id\": 3,\n                \"name\": \"product 3\",\n                \"description\": \"product\",\n                \"price\": 6000,\n                \"offer\": 3000,\n                \"image\": \"back-2_1627326624.webp\",\n                \"available\": \"yes\",\n                \"category_id\": 1,\n                \"created_at\": \"2022-11-02T10:41:49.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:49.000000Z\"\n            },\n            {\n                \"id\": 4,\n                \"name\": \"product 4\",\n                \"description\": \"product\",\n                \"price\": 6000,\n                \"offer\": 3000,\n                \"image\": \"back-2_1627326624.webp\",\n                \"available\": \"yes\",\n                \"category_id\": 1,\n                \"created_at\": \"2022-11-02T10:41:49.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:49.000000Z\"\n            },\n            {\n                \"id\": 5,\n                \"name\": \"product 5\",\n                \"description\": \"product\",\n                \"price\": 6000,\n                \"offer\": 3000,\n                \"image\": \"back-2_1627326624.webp\",\n                \"available\": \"yes\",\n                \"category_id\": 1,\n                \"created_at\": \"2022-11-02T10:41:49.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:49.000000Z\"\n            },\n            {\n                \"id\": 6,\n                \"name\": \"product 1\",\n                \"description\": \"product\",\n                \"price\": 6000,\n                \"offer\": 3000,\n                \"image\": \"back-2_1627326624.webp\",\n                \"available\": \"yes\",\n                \"category_id\": 1,\n                \"created_at\": \"2022-11-02T10:41:49.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:49.000000Z\"\n            }\n        ],\n        \"links\": {\n            \"first\": \"http://127.0.0.1:8000/api/products?page=1\",\n            \"last\": \"http://127.0.0.1:8000/api/products?page=5\",\n            \"prev\": null,\n            \"next\": \"http://127.0.0.1:8000/api/products?page=2\"\n        },\n        \"meta\": {\n            \"current_page\": 1,\n            \"from\": 1,\n            \"last_page\": 5,\n            \"links\": [\n                {\n                    \"url\": null,\n                    \"label\": \"&laquo; Previous\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/products?page=1\",\n                    \"label\": \"1\",\n                    \"active\": true\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/products?page=2\",\n                    \"label\": \"2\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/products?page=3\",\n                    \"label\": \"3\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/products?page=4\",\n                    \"label\": \"4\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/products?page=5\",\n                    \"label\": \"5\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/products?page=2\",\n                    \"label\": \"Next &raquo;\",\n                    \"active\": false\n                }\n            ],\n            \"path\": \"http://127.0.0.1:8000/api/products\",\n            \"per_page\": 6,\n            \"to\": 6,\n            \"total\": 25\n        }\n    },\n    \"message\": \"\",\n    \"code\": 200,\n    \"errors\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "store new product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "product 5",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "product ",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "6000",
+							"type": "text"
+						},
+						{
+							"key": "offer",
+							"value": "3000",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/Bss/Downloads/back-2_1627326624.webp"
+						},
+						{
+							"key": "available",
+							"value": "yes",
+							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "11",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/products",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "update product",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "product 6",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "product 6",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Bss/Downloads/back-2_1627326624.webp"
+								},
+								{
+									"key": "price",
+									"value": "6000",
+									"type": "text"
+								},
+								{
+									"key": "offer",
+									"value": "1000",
+									"type": "text"
+								},
+								{
+									"key": "available",
+									"value": "yes",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 10:49:06 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 10:49:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.16"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 27,\n        \"name\": \"product 6\",\n        \"description\": \"product 6\",\n        \"price\": \"6000\",\n        \"offer\": \"1000\",\n        \"image\": {},\n        \"available\": \"yes\",\n        \"category_id\": \"1\",\n        \"created_at\": \"2022-11-02T10:49:06.000000Z\",\n        \"updated_at\": \"2022-11-02T10:49:06.000000Z\"\n    },\n    \"message\": \"success\",\n    \"code\": 200,\n    \"errors\": \"\"\n}"
+				}
+			]
+		},
+		{
+			"name": "update product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Access-Control-Request-Method",
+						"value": "multipart/form-data",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "hhhhhh",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/products/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "update product",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "product 1",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "product 1",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "6000",
+									"type": "text"
+								},
+								{
+									"key": "offer",
+									"value": "1000",
+									"type": "text"
+								},
+								{
+									"key": "available",
+									"value": "yes",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Bss/Downloads/about.webp"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/products/1?_method=put",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"1"
+							],
+							"query": [
+								{
+									"key": "_method",
+									"value": "put"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 12:14:50 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 12:14:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.16"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"product 1\",\n        \"description\": \"product 1\",\n        \"price\": \"6000\",\n        \"offer\": \"1000\",\n        \"image\": \"images/product//202211021214about.webp\",\n        \"available\": \"yes\",\n        \"category_id\": \"1\",\n        \"created_at\": \"2022-11-02T10:41:49.000000Z\",\n        \"updated_at\": \"2022-11-02T12:14:50.000000Z\"\n    },\n    \"message\": \"success\",\n    \"code\": 200,\n    \"errors\": \"\"\n}"
+				}
+			]
+		},
+		{
+			"name": "destroy product",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/api/products/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"products",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "destroy product",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/products/26",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"26"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 10:54:10 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 10:54:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.16"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 26,\n        \"name\": \"product 6\",\n        \"description\": \"product 6\",\n        \"price\": 6000,\n        \"offer\": 1000,\n        \"image\": \"images/product//202211021049back-2_1627326624.webp\",\n        \"available\": \"yes\",\n        \"category_id\": 1,\n        \"created_at\": \"2022-11-02T10:49:06.000000Z\",\n        \"updated_at\": \"2022-11-02T10:49:06.000000Z\"\n    },\n    \"message\": \"deleted\",\n    \"code\": 204,\n    \"errors\": \"\"\n}"
+				}
+			]
+		},
+		{
+			"name": "show product",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "show product",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/products/5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"5"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 10:54:21 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 10:54:21 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.16"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 5,\n        \"name\": \"product 5\",\n        \"description\": \"product\",\n        \"price\": 6000,\n        \"offer\": 3000,\n        \"image\": \"back-2_1627326624.webp\",\n        \"available\": \"yes\",\n        \"category_id\": 1,\n        \"created_at\": \"2022-11-02T10:41:49.000000Z\",\n        \"updated_at\": \"2022-11-02T10:41:49.000000Z\"\n    },\n    \"message\": \"\",\n    \"code\": 200,\n    \"errors\": []\n}"
+				}
+			]
+		}
+	]
+}

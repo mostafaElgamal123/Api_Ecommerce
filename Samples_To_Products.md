@@ -20,7 +20,7 @@ ___
 <table>
 <tr>
 <th style="text-align:start">use</th>
-<td>get all product</td>
+<td>get all products</td>
 </tr>
 <tr>
 <th style="text-align:start">parameter</th>
@@ -28,7 +28,7 @@ ___
 </tr>
 <tr>
 <th style="text-align:start">method</th>
-<td>get</td>
+<td>GET</td>
 </tr>
 <tr>
 <th style="text-align:start">url</th>
@@ -102,7 +102,7 @@ ___
 </tr>
 <tr>
 <th style="text-align:start">method</th>
-<td>post</td>
+<td>POST</td>
 </tr>
 <tr>
 <th style="text-align:start">url</th>
@@ -204,7 +204,7 @@ ___
 </tr>
 <tr>
 <th style="text-align:start">method</th>
-<td>post</td>
+<td>POST</td>
 </tr>
 <tr>
 <th style="text-align:start">url</th>
@@ -380,7 +380,7 @@ ___
 </tr>
 <tr>
 <th style="text-align:start">method</th>
-<td>get</td>
+<td>GET</td>
 </tr>
 <tr>
 <th style="text-align:start">url</th>

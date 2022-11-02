@@ -1,0 +1,367 @@
+{
+	"info": {
+		"_postman_id": "c3398a7d-ce90-4589-bd40-f367eac49222",
+		"name": "actions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22647345"
+	},
+	"item": [
+		{
+			"name": "search about product by name",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/api/searchproductnames?name=product",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"searchproductnames"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "product"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "search about product by name",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/searchproductnames?name=product 5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"searchproductnames"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "product 5"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 10:54:42 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 10:54:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.16"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "56"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"0\": {\n        \"data\": [\n            {\n                \"id\": 5,\n                \"name\": \"product 5\",\n                \"description\": \"product\",\n                \"price\": 6000,\n                \"offer\": 3000,\n                \"image\": \"back-2_1627326624.webp\",\n                \"available\": \"yes\",\n                \"category_id\": 1,\n                \"created_at\": \"2022-11-02T10:41:49.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:49.000000Z\"\n            },\n            {\n                \"id\": 10,\n                \"name\": \"product 5\",\n                \"description\": \"product\",\n                \"price\": 6000,\n                \"offer\": 3000,\n                \"image\": \"back-2_1627326624.webp\",\n                \"available\": \"yes\",\n                \"category_id\": 2,\n                \"created_at\": \"2022-11-02T10:41:49.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:49.000000Z\"\n            },\n            {\n                \"id\": 15,\n                \"name\": \"product 5\",\n                \"description\": \"product\",\n                \"price\": 6000,\n                \"offer\": 3000,\n                \"image\": \"back-2_1627326624.webp\",\n                \"available\": \"yes\",\n                \"category_id\": 3,\n                \"created_at\": \"2022-11-02T10:41:49.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:49.000000Z\"\n            },\n            {\n                \"id\": 20,\n                \"name\": \"product 5\",\n                \"description\": \"product\",\n                \"price\": 6000,\n                \"offer\": 3000,\n                \"image\": \"back-2_1627326624.webp\",\n                \"available\": \"yes\",\n                \"category_id\": 4,\n                \"created_at\": \"2022-11-02T10:41:50.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:50.000000Z\"\n            },\n            {\n                \"id\": 25,\n                \"name\": \"product 5\",\n                \"description\": \"product\",\n                \"price\": 6000,\n                \"offer\": 3000,\n                \"image\": \"back-2_1627326624.webp\",\n                \"available\": \"yes\",\n                \"category_id\": 5,\n                \"created_at\": \"2022-11-02T10:41:50.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:50.000000Z\"\n            }\n        ],\n        \"links\": {\n            \"first\": \"http://127.0.0.1:8000/api/searchproductnames?page=1\",\n            \"last\": \"http://127.0.0.1:8000/api/searchproductnames?page=1\",\n            \"prev\": null,\n            \"next\": null\n        },\n        \"meta\": {\n            \"current_page\": 1,\n            \"from\": 1,\n            \"last_page\": 1,\n            \"links\": [\n                {\n                    \"url\": null,\n                    \"label\": \"&laquo; Previous\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/searchproductnames?page=1\",\n                    \"label\": \"1\",\n                    \"active\": true\n                },\n                {\n                    \"url\": null,\n                    \"label\": \"Next &raquo;\",\n                    \"active\": false\n                }\n            ],\n            \"path\": \"http://127.0.0.1:8000/api/searchproductnames\",\n            \"per_page\": 6,\n            \"to\": 5,\n            \"total\": 5\n        }\n    },\n    \"message\": \"success\",\n    \"code\": 200,\n    \"errors\": \"\"\n}"
+				}
+			]
+		},
+		{
+			"name": "view products according to category",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/productsaccordingcategory/15",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"productsaccordingcategory",
+						"15"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "view products according to category",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/productsaccordingcategory/5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"productsaccordingcategory",
+								"5"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 10:55:01 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 10:55:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.16"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "54"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"0\": {\n        \"data\": [\n            {\n                \"id\": 21,\n                \"name\": \"product 1\",\n                \"description\": \"product\",\n                \"price\": 6000,\n                \"offer\": 3000,\n                \"image\": \"back-2_1627326624.webp\",\n                \"available\": \"yes\",\n                \"category_id\": 5,\n                \"created_at\": \"2022-11-02T10:41:50.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:50.000000Z\"\n            },\n            {\n                \"id\": 22,\n                \"name\": \"product 2\",\n                \"description\": \"product\",\n                \"price\": 6000,\n                \"offer\": 3000,\n                \"image\": \"back-2_1627326624.webp\",\n                \"available\": \"yes\",\n                \"category_id\": 5,\n                \"created_at\": \"2022-11-02T10:41:50.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:50.000000Z\"\n            },\n            {\n                \"id\": 23,\n                \"name\": \"product 3\",\n                \"description\": \"product\",\n                \"price\": 6000,\n                \"offer\": 3000,\n                \"image\": \"back-2_1627326624.webp\",\n                \"available\": \"yes\",\n                \"category_id\": 5,\n                \"created_at\": \"2022-11-02T10:41:50.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:50.000000Z\"\n            },\n            {\n                \"id\": 24,\n                \"name\": \"product 4\",\n                \"description\": \"product\",\n                \"price\": 6000,\n                \"offer\": 3000,\n                \"image\": \"back-2_1627326624.webp\",\n                \"available\": \"yes\",\n                \"category_id\": 5,\n                \"created_at\": \"2022-11-02T10:41:50.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:50.000000Z\"\n            },\n            {\n                \"id\": 25,\n                \"name\": \"product 5\",\n                \"description\": \"product\",\n                \"price\": 6000,\n                \"offer\": 3000,\n                \"image\": \"back-2_1627326624.webp\",\n                \"available\": \"yes\",\n                \"category_id\": 5,\n                \"created_at\": \"2022-11-02T10:41:50.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:50.000000Z\"\n            }\n        ],\n        \"links\": {\n            \"first\": \"http://127.0.0.1:8000/api/productsaccordingcategory/5?page=1\",\n            \"last\": \"http://127.0.0.1:8000/api/productsaccordingcategory/5?page=1\",\n            \"prev\": null,\n            \"next\": null\n        },\n        \"meta\": {\n            \"current_page\": 1,\n            \"from\": 1,\n            \"last_page\": 1,\n            \"links\": [\n                {\n                    \"url\": null,\n                    \"label\": \"&laquo; Previous\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/productsaccordingcategory/5?page=1\",\n                    \"label\": \"1\",\n                    \"active\": true\n                },\n                {\n                    \"url\": null,\n                    \"label\": \"Next &raquo;\",\n                    \"active\": false\n                }\n            ],\n            \"path\": \"http://127.0.0.1:8000/api/productsaccordingcategory/5\",\n            \"per_page\": 6,\n            \"to\": 5,\n            \"total\": 5\n        }\n    },\n    \"message\": \"\",\n    \"code\": 200,\n    \"errors\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "filter products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/api/filterproducts?category_id=&min_price=0&max_price=8000&name=",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"filterproducts"
+					],
+					"query": [
+						{
+							"key": "category_id",
+							"value": ""
+						},
+						{
+							"key": "min_price",
+							"value": "0"
+						},
+						{
+							"key": "max_price",
+							"value": "8000"
+						},
+						{
+							"key": "name",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "filter products",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/filterproducts?category_id=category 5&min_price=0&max_price=8000&name=product 1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"filterproducts"
+							],
+							"query": [
+								{
+									"key": "category_id",
+									"value": "category 5"
+								},
+								{
+									"key": "min_price",
+									"value": "0"
+								},
+								{
+									"key": "max_price",
+									"value": "8000"
+								},
+								{
+									"key": "name",
+									"value": "product 1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 10:55:58 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Nov 2022 10:55:58 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.16"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "56"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"0\": {\n        \"data\": [\n            {\n                \"id\": 21,\n                \"name\": \"product 1\",\n                \"description\": \"product\",\n                \"price\": 6000,\n                \"offer\": 3000,\n                \"image\": \"back-2_1627326624.webp\",\n                \"available\": \"yes\",\n                \"category_id\": 5,\n                \"created_at\": \"2022-11-02T10:41:50.000000Z\",\n                \"updated_at\": \"2022-11-02T10:41:50.000000Z\"\n            }\n        ],\n        \"links\": {\n            \"first\": \"http://127.0.0.1:8000/api/filterproducts?page=1\",\n            \"last\": \"http://127.0.0.1:8000/api/filterproducts?page=1\",\n            \"prev\": null,\n            \"next\": null\n        },\n        \"meta\": {\n            \"current_page\": 1,\n            \"from\": 1,\n            \"last_page\": 1,\n            \"links\": [\n                {\n                    \"url\": null,\n                    \"label\": \"&laquo; Previous\",\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/filterproducts?page=1\",\n                    \"label\": \"1\",\n                    \"active\": true\n                },\n                {\n                    \"url\": null,\n                    \"label\": \"Next &raquo;\",\n                    \"active\": false\n                }\n            ],\n            \"path\": \"http://127.0.0.1:8000/api/filterproducts\",\n            \"per_page\": 6,\n            \"to\": 1,\n            \"total\": 1\n        }\n    },\n    \"message\": \"success\",\n    \"code\": 200,\n    \"errors\": \"\"\n}"
+				}
+			]
+		}
+	]
+}

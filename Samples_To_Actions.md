@@ -28,7 +28,7 @@ ___
 </tr>
 <tr>
 <th style="text-align:start">method</th>
-<td>get</td>
+<td>GET</td>
 </tr>
 <tr>
 <th style="text-align:start">url</th>
@@ -123,7 +123,7 @@ ___
 </tr>
 <tr>
 <th style="text-align:start">method</th>
-<td>get</td>
+<td>GET</td>
 </tr>
 <tr>
 <th style="text-align:start">url</th>
@@ -205,7 +205,7 @@ ___
 </tr>
 <tr>
 <th style="text-align:start">method</th>
-<td>get</td>
+<td>GET</td>
 </tr>
 <tr>
 <th style="text-align:start">url</th>
