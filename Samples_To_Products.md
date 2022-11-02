@@ -204,7 +204,7 @@ ___
 </tr>
 <tr>
 <th style="text-align:start">method</th>
-<td>put</td>
+<td>post</td>
 </tr>
 <tr>
 <th style="text-align:start">url</th>
