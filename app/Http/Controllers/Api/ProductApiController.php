@@ -7,17 +7,15 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use Storage;
 use Illuminate\Pipeline\Pipeline;
-use App\Filters\Name;
-use App\Filters\CategoryId;
-use App\Filters\MinPriceAndMaxPrice;
-use App\Filters\Offer;
-use App\Http\Resources\ProductsResource;
-use App\Http\Resources\ProductsCollection;
+use App\Filters\{Name,CategoryId,MinPriceAndMaxPrice,Offer};
+use App\Http\Resources\{ProductsResource,ProductsCollection};
 use Illuminate\Support\Facades\Validator;
-use App\Traits\ApiResponse;
+use App\Traits\{ApiResponse,UploadFile,ValidatorRequest};
 class ProductApiController extends Controller
 {
     use ApiResponse;
+    use UploadFile;
+    use ValidatorRequest;
     /**
      * Display a listing of the resource.
      *
@@ -25,8 +23,12 @@ class ProductApiController extends Controller
      */
     public function index()
     {
-        $product=Product::paginate(6);
-        return $this->response(ProductsResource::collection($product)->response()->getData(true),'');
+        $product=Product::paginate();
+        if(empty($product->total())){
+            return $this->response('','not found data',404,'');
+        }else{
+            return $this->response(ProductsResource::collection($product)->response()->getData(true),'');
+        }
     }
 
     /**
@@ -37,27 +39,13 @@ class ProductApiController extends Controller
      */
     public function store(Request $request)
     {
-        $validator=Validator::make($request->all(),[
-            'name'                =>'required|min:3|max:150',
-            'description'         =>'required|min:3|max:100000',
-            'image'               =>'required|image|mimes:webp,jpg,png|max:300',
-            'price'               =>'required|nullable|regex:/^(\d+(,\d{1,2})?)?$/',
-            'offer'               =>'required|nullable|regex:/^(\d+(,\d{1,2})?)?$/',
-            'available'           =>'required|',
-            'category_id'         =>'required|',
-        ]);
+        $validator=Validator::make($request->all(),$this->ValidationProducts('required'));
         if($validator->fails()){
             return $this->response('','fail',422,$validator->errors());
         }else{
-            if($request->hasFile('image')){
-                $file= $request->file('image');
-                $destination_path='/images/product/';
-                $filename=date('YmdHi').$file->getClientOriginalName();
-                $path =$request->file('image')->storeAs($destination_path,$filename);
-                $product=Product::create($request->all());
-                $product->image= $path;
-                $product->save();
-            }
+            $product=Product::create($request->all());
+            $product->image=$this->UploadImage($request->file('image'),'/images/product/');
+            $product->save();
             return $this->response(new ProductsResource($product),'success',201,'');
         }
     }
@@ -83,30 +71,18 @@ class ProductApiController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        $validator=Validator::make($request->all(),[
-            'name'                =>'required|min:3|max:150',
-            'description'         =>'required|min:3|max:100000',
-            'image'               =>'|image|mimes:webp,jpg,png|max:300',
-            'price'               =>'required|nullable|regex:/^(\d+(,\d{1,2})?)?$/',
-            'offer'               =>'required|nullable|regex:/^(\d+(,\d{1,2})?)?$/',
-            'available'           =>'required|',
-            'category_id'         =>'required|',
-        ]);
+        $validator=Validator::make($request->all(),$this->ValidationProducts(''));
         if($validator->fails()){
             return $this->response('','fail',422,$validator->errors());
         }else{
             if($request->hasFile('image')){
-                $file= $request->file('image');
-                $destination_path='/images/product/';
-                $filename=date('YmdHi').$file->getClientOriginalName();
-                $path =$request->file('image')->storeAs($destination_path,$filename);
                 if(Storage::delete($product->image)){
                     $product->update($request->all());
-                    $product->image= $path;
+                    $product->image=$this->UploadImage($request->file('image'),'/images/product/');
                     $product->save();
                 }else{
                     $product->update($request->all());
-                    $product->image= $path;
+                    $product->image=$this->UploadImage($request->file('image'),'/images/product/');
                     $product->save();
                 }
             }else{
@@ -147,22 +123,24 @@ class ProductApiController extends Controller
         if($validator->fails()){
             return $this->response('','fail',422,$validator->errors());
         }else{
-            $product=Product::where('name','LIKE', '%'.request()->input('name').'%')->paginate(6);
-            return $this->response(ProductsResource::collection($product)->response()->getData(true),'success',http_response_code(),'');
+            $product=Product::where('name','LIKE', '%'.request()->input('name').'%')->paginate();
+            if(empty($product->total())){
+                return $this->response('','not found data',404,'');
+            }else{
+                return $this->response(ProductsResource::collection($product)->response()->getData(true),'success',http_response_code(),'');
+            }
         }
     }
     public function ProductsAccordingCategory($category_id){
-        $product=Product::where('category_id',$category_id)->paginate(6);
-        return $this->response(ProductsResource::collection($product)->response()->getData(true),'');
+        $product=Product::where('category_id',$category_id)->paginate();
+        if(empty($product->total())){
+            return $this->response('','not found data',404,'');
+        }else{
+            return $this->response(ProductsResource::collection($product)->response()->getData(true),'');
+        }
     }
     public function FilterProducts(Request $request){
-        $validator=Validator::make($request->all(),[
-            'name'                =>'|max:150',
-            'min_price'           =>'|nullable|regex:/^(\d+(,\d{1,2})?)?$/',
-            'max_price'           =>'|nullable|regex:/^(\d+(,\d{1,2})?)?$/',
-            'offer'               =>'|nullable|regex:/^(\d+(,\d{1,2})?)?$/',
-            'category_id'         =>'|max:250',
-        ]);
+        $validator=Validator::make($request->all(),$this->ValidationFilterProducts());
         if($validator->fails()){
             return $this->response('','fail',422,$validator->errors());
         }else{
@@ -175,8 +153,12 @@ class ProductApiController extends Controller
                     Offer::class,
                 ])
                 ->thenReturn()
-                ->paginate(6);
-            return $this->response(ProductsResource::collection($product)->response()->getData(true),'success',http_response_code(),'');
+                ->paginate();
+            if(empty($product->total())){
+                return $this->response('','not found data',404,'');
+            }else{
+                return $this->response(ProductsResource::collection($product)->response()->getData(true),'success',http_response_code(),'');
+            }
         }
     }
 

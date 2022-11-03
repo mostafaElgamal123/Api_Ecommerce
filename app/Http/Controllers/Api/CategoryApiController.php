@@ -4,15 +4,14 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Category;
-use App\Models\Product;
-use App\Http\Resources\CategoriesResource;
-use App\Http\Resources\CategoriesCollection;
+use App\Models\{Category,Product};
+use App\Http\Resources\{ProductsResource,CategoriesResource,CategoriesCollection};
 use Illuminate\Support\Facades\Validator;
-use App\Traits\ApiResponse;
+use App\Traits\{ApiResponse,ValidatorRequest};
 class CategoryApiController extends Controller
 {
     use ApiResponse;
+    use ValidatorRequest;
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +19,12 @@ class CategoryApiController extends Controller
      */
     public function index(Request $request)
     {
-        $category=Category::paginate(6);
-        return $this->response(CategoriesResource::collection($category)->response()->getData(true),'');
+        $category=Category::paginate();
+        if(empty($category->total())){
+            return $this->response('','not found data',404,'');
+        }else{
+            return $this->response(CategoriesResource::collection($category)->response()->getData(true),'');
+        }
     }
 
     /**
@@ -32,10 +35,7 @@ class CategoryApiController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name'              =>'required|min:3|max:50',
-            'description'       =>'min:3|max:1000',
-        ]);
+        $validator = Validator::make($request->all(),$this->ValidationCategories());
         if ($validator->fails()) {
             return $this->response('','fail',422,$validator->errors());
         }else{
@@ -52,8 +52,12 @@ class CategoryApiController extends Controller
      */
     public function show(Category $category)
     {
-        $product=Product::where('category_id',$category->id)->paginate(6);
-        return $this->response(CategoriesResource::collection($product)->response()->getData(true),'');
+        $product=Product::where('category_id',$category->id)->paginate();
+        if(empty($product->total())){
+            return $this->response('','not found data',404,'');
+        }else{
+            return $this->response(ProductsResource::collection($product)->response()->getData(true),'');
+        }
     }
 
 
@@ -66,10 +70,7 @@ class CategoryApiController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        $validator = Validator::make($request->all(), [
-            'name'              =>'required|min:3|max:50',
-            'description'       =>'min:3|max:1000',
-        ]);
+        $validator = Validator::make($request->all(),$this->ValidationCategories());
         if ($validator->fails()) {
             return $this->response('','fail',422,$validator->errors());
         }else{

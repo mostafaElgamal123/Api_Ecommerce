@@ -339,11 +339,16 @@ ___
     "data": {
         "data": [
             {
-                "id": 111,
+                "id": 1,
                 "name": "product 1",
-                "description": "product",
-                "created_at": "2022-10-18T12:31:13.000000Z",
-                "updated_at": "2022-10-18T12:31:13.000000Z"
+                "description": "product 1",
+                "price": 6000,
+                "offer": 1000,
+                "image": "images/product//202211021755about.webp",
+                "available": "yes",
+                "category_id": 1,
+                "created_at": "2022-11-02T16:45:51.000000Z",
+                "updated_at": "2022-11-02T17:55:25.000000Z"
             }
         ]
     },

@@ -90,6 +90,19 @@ ___
 </td>
 </tr>
 <tr>
+<td> format not found data </td>
+<td>
+<pre>
+{
+    "data": [],
+    "message": "not found data",
+    "code": 404,
+    "errors": ""
+}
+</pre>
+</td>
+</tr>
+<tr>
 <th style="text-align:start">Vaildation</th>
 <td>
 <pre>
@@ -185,6 +198,19 @@ ___
 </td>
 </tr>
 <tr>
+<td>format not found data</td>
+<td>
+<pre>
+{
+    "data": [],
+    "message": "not found data",
+    "code": 404,
+    "errors": ""
+}
+</pre>
+</td>
+</tr>
+<tr>
 <th style="text-align:start">Vaildation</th>
 <td>No need to vaildation</td>
 </tr>
@@ -263,11 +289,9 @@ ___
 <td>
 <pre>
 {
-    "data": {
-        "data": []
-    },
-    "message": "success",
-    "code": 200,
+    "data": [],
+    "message": "not found data",
+    "code": 404,
     "errors": ""
 }
 </pre>
