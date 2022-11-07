@@ -203,19 +203,15 @@
 					]
 				},
 				"url": {
-					"raw": "{{url}}/api/products",
+					"raw": "{{url}}products",
 					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"products"
+						"{{url}}products"
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "update product",
+					"name": "add product",
 					"originalRequest": {
 						"method": "POST",
 						"header": [
@@ -931,7 +927,7 @@
 			]
 		},
 		{
-			"name": "destroy product",
+			"name": "delete product",
 			"request": {
 				"method": "DELETE",
 				"header": [
@@ -954,7 +950,7 @@
 			},
 			"response": [
 				{
-					"name": "destroy product",
+					"name": "delete product",
 					"originalRequest": {
 						"method": "DELETE",
 						"header": [

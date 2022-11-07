@@ -52,14 +52,21 @@ class CategoryApiController extends Controller
      */
     public function show(Category $category)
     {
-        $product=Product::where('category_id',$category->id)->paginate();
-        if(empty($product->total())){
+        if(empty($category)){
+            return $this->response('','not found data',404,'');
+        }else{
+            return $this->response(new CategoriesResource($category),'');
+        }
+    }
+
+    public function ShowCategoriesProducts(Category $category){
+        $product=Product::where('category_id',$category->id)->get();
+        if(empty($product)){
             return $this->response('','not found data',404,'');
         }else{
             return $this->response(ProductsResource::collection($product)->response()->getData(true),'');
         }
     }
-
 
     /**
      * Update the specified resource in storage.

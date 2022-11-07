@@ -17,11 +17,21 @@ trait ApiResponse{
         }else{
             return response()->json([
                 'data'=>[],
-                'message'=>"not found data",
-                'code'=>404,
+                'message'=>$message,
+                'code'=>$code,
                 'errors'=>$errors
             ],200);
         }
+    }
+
+    public function ResponseAuth($data=[],$token,$message,$code=200,$errors=[]){
+        return response()->json([
+            'data'=>$data,
+            'token'=>$token,
+            'message'=>$message,
+            'code'=>$code,
+            'errors'=>$errors
+        ],200);
     }
 
 }

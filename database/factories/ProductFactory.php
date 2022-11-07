@@ -19,6 +19,7 @@ class ProductFactory extends Factory
             'description' => $this->faker->paragraph(),
             'price' => rand(300,500),
             'offer' => $offer_list[rand(0,(count($offer_list)-1))],
+            'quantity' => rand(1,20),
             'image' => "https://via.placeholder.com/350",
             'available' => "yes",
         ];

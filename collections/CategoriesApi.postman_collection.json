@@ -8,6 +8,9 @@
 	"item": [
 		{
 			"name": "get all categories",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [
@@ -17,6 +20,10 @@
 						"type": "text"
 					}
 				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
 				"url": {
 					"raw": "{{url}}categories",
 					"host": [
@@ -170,23 +177,20 @@
 					"formdata": [
 						{
 							"key": "name",
-							"value": "",
+							"value": "category",
 							"type": "text"
 						},
 						{
 							"key": "description",
-							"value": "",
+							"value": "category 2",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "{{url}}categories/1",
+					"raw": "{{url}}categories",
 					"host": [
 						"{{url}}categories"
-					],
-					"path": [
-						"1"
 					]
 				}
 			},
@@ -450,7 +454,7 @@
 					"formdata": [
 						{
 							"key": "name",
-							"value": "",
+							"value": "category",
 							"type": "text"
 						}
 					]
@@ -727,12 +731,12 @@
 					}
 				],
 				"url": {
-					"raw": "{{url}}categories/1",
+					"raw": "{{url}}categories/2",
 					"host": [
 						"{{url}}categories"
 					],
 					"path": [
-						"1"
+						"2"
 					]
 				}
 			},
@@ -878,7 +882,7 @@
 			]
 		},
 		{
-			"name": "destroy category",
+			"name": "delete category",
 			"request": {
 				"method": "DELETE",
 				"header": [
@@ -900,7 +904,7 @@
 			},
 			"response": [
 				{
-					"name": "destroy category",
+					"name": "delete category",
 					"originalRequest": {
 						"method": "DELETE",
 						"header": [
@@ -1094,6 +1098,171 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"data\": [],\n    \"message\": \"not found data\",\n    \"code\": 404,\n    \"errors\": \"not found this category id\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Categories-Products",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}categories/1/products",
+					"host": [
+						"{{url}}categories"
+					],
+					"path": [
+						"1",
+						"products"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Categories-Products",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}categories/1/products",
+							"host": [
+								"{{url}}categories"
+							],
+							"path": [
+								"1",
+								"products"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 05 Nov 2022 13:05:28 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 05 Nov 2022 13:05:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.16"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"data\": [\n            {\n                \"id\": 1,\n                \"name\": \"Americo Mayer\",\n                \"description\": \"Dolores quia quibusdam velit consequatur omnis iusto. Laborum ea reprehenderit odit beatae minus aperiam quae.\",\n                \"price\": 400,\n                \"offer\": 35,\n                \"image\": \"https://via.placeholder.com/350\",\n                \"available\": \"yes\",\n                \"category_id\": 1,\n                \"created_at\": \"2022-11-05T12:51:39.000000Z\",\n                \"updated_at\": \"2022-11-05T12:51:39.000000Z\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Miss Angelita Kris\",\n                \"description\": \"Sunt ad molestias sed et et. Hic quis laboriosam suscipit quis. Sit et dolor ad maiores accusamus iusto. Officia eaque nesciunt dolorem nihil labore delectus. Dolorem aliquam expedita rem est.\",\n                \"price\": 474,\n                \"offer\": 10,\n                \"image\": \"https://via.placeholder.com/350\",\n                \"available\": \"yes\",\n                \"category_id\": 1,\n                \"created_at\": \"2022-11-05T12:51:40.000000Z\",\n                \"updated_at\": \"2022-11-05T12:51:40.000000Z\"\n            },\n            {\n                \"id\": 3,\n                \"name\": \"Annamarie Beatty III\",\n                \"description\": \"Exercitationem reprehenderit error perspiciatis non molestiae. Quod fugit consequuntur incidunt doloremque blanditiis velit iure. Molestiae molestias quia id tempora dignissimos dignissimos.\",\n                \"price\": 346,\n                \"offer\": 20,\n                \"image\": \"https://via.placeholder.com/350\",\n                \"available\": \"yes\",\n                \"category_id\": 1,\n                \"created_at\": \"2022-11-05T12:51:40.000000Z\",\n                \"updated_at\": \"2022-11-05T12:51:40.000000Z\"\n            },\n            {\n                \"id\": 4,\n                \"name\": \"Jedediah Kutch\",\n                \"description\": \"Ut recusandae dolor adipisci eum. Et enim qui omnis omnis perspiciatis numquam qui natus. Ut dolorem qui vitae sit quos.\",\n                \"price\": 434,\n                \"offer\": 30,\n                \"image\": \"https://via.placeholder.com/350\",\n                \"available\": \"yes\",\n                \"category_id\": 1,\n                \"created_at\": \"2022-11-05T12:51:40.000000Z\",\n                \"updated_at\": \"2022-11-05T12:51:40.000000Z\"\n            },\n            {\n                \"id\": 5,\n                \"name\": \"Noemy Effertz\",\n                \"description\": \"Eaque aperiam in veritatis ut. Optio debitis totam earum aut in laboriosam. Qui omnis aut expedita id illo sint. Aliquid mollitia sint minima.\",\n                \"price\": 312,\n                \"offer\": 30,\n                \"image\": \"https://via.placeholder.com/350\",\n                \"available\": \"yes\",\n                \"category_id\": 1,\n                \"created_at\": \"2022-11-05T12:51:40.000000Z\",\n                \"updated_at\": \"2022-11-05T12:51:40.000000Z\"\n            },\n            {\n                \"id\": 6,\n                \"name\": \"Ilene Turcotte\",\n                \"description\": \"Dolores amet consectetur autem assumenda expedita eaque quo. Et et et dolores. Et enim fuga quidem qui quod. Corrupti dolores tenetur veritatis reprehenderit dignissimos.\",\n                \"price\": 438,\n                \"offer\": 15,\n                \"image\": \"https://via.placeholder.com/350\",\n                \"available\": \"yes\",\n                \"category_id\": 1,\n                \"created_at\": \"2022-11-05T12:51:40.000000Z\",\n                \"updated_at\": \"2022-11-05T12:51:40.000000Z\"\n            },\n            {\n                \"id\": 7,\n                \"name\": \"Alfredo Hodkiewicz Sr.\",\n                \"description\": \"Distinctio placeat optio facere non cumque ut. In est ea ipsam excepturi ad modi atque. Nihil dolor labore omnis excepturi unde mollitia blanditiis.\",\n                \"price\": 325,\n                \"offer\": 20,\n                \"image\": \"https://via.placeholder.com/350\",\n                \"available\": \"yes\",\n                \"category_id\": 1,\n                \"created_at\": \"2022-11-05T12:51:40.000000Z\",\n                \"updated_at\": \"2022-11-05T12:51:40.000000Z\"\n            },\n            {\n                \"id\": 8,\n                \"name\": \"Dr. Neha Kirlin PhD\",\n                \"description\": \"Voluptas molestiae amet aut amet dolorem voluptatem nulla. Quas architecto sit optio sunt. Sint sint molestias tenetur quod soluta dolore dolor. Commodi ut velit ab maxime.\",\n                \"price\": 399,\n                \"offer\": 15,\n                \"image\": \"https://via.placeholder.com/350\",\n                \"available\": \"yes\",\n                \"category_id\": 1,\n                \"created_at\": \"2022-11-05T12:51:40.000000Z\",\n                \"updated_at\": \"2022-11-05T12:51:40.000000Z\"\n            },\n            {\n                \"id\": 9,\n                \"name\": \"Judd Buckridge\",\n                \"description\": \"Porro repellat possimus omnis autem repellat laborum. Molestiae maxime sit earum aliquid tenetur aut quia est. Eaque velit et ut velit.\",\n                \"price\": 311,\n                \"offer\": 40,\n                \"image\": \"https://via.placeholder.com/350\",\n                \"available\": \"yes\",\n                \"category_id\": 1,\n                \"created_at\": \"2022-11-05T12:51:40.000000Z\",\n                \"updated_at\": \"2022-11-05T12:51:40.000000Z\"\n            },\n            {\n                \"id\": 10,\n                \"name\": \"Addie Kuhic III\",\n                \"description\": \"Sed ad error sint consequatur cum. Sed dignissimos cum ut. Neque ad quod tempora repudiandae est est.\",\n                \"price\": 301,\n                \"offer\": 15,\n                \"image\": \"https://via.placeholder.com/350\",\n                \"available\": \"yes\",\n                \"category_id\": 1,\n                \"created_at\": \"2022-11-05T12:51:40.000000Z\",\n                \"updated_at\": \"2022-11-05T12:51:40.000000Z\"\n            }\n        ]\n    },\n    \"message\": \"\",\n    \"code\": 200,\n    \"errors\": []\n}"
+				},
+				{
+					"name": "not found data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}categories/50/products",
+							"host": [
+								"{{url}}categories"
+							],
+							"path": [
+								"50",
+								"products"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 05 Nov 2022 13:38:44 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 05 Nov 2022 13:38:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.16"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "56"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [],\n    \"message\": \"not found data\",\n    \"code\": 404,\n    \"errors\": \"object not found\"\n}"
 				}
 			]
 		}
