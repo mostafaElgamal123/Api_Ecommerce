@@ -1,64 +1,1119 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<!-- Samples to categories -->
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<h1 style="text-align:center;">Samples crud</h1>
 
-## About Laravel
+## Mockup For Response: 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+```json
+{
+  "data":"data of response",
+  "message":"success or fail",
+  "code":"status of response code",
+  "error":{"key":"if thier any errors in response"},
+}
+```
+___
+## Categories:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Index
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<table>
+<tr>
+<th style="text-align:start">use</th>
+<td>get all categories</td>
+</tr>
+<tr>
+<th style="text-align:start">parameter</th>
+<td>No need</td>
+</tr>
+<tr>
+<th style="text-align:start">method</th>
+<td>GET</td>
+</tr>
+<tr>
+<th style="text-align:start">url</th>
+<td>api/categories</td>
+</tr>
+<tr>
+<th style="text-align:start">Format response success</th>
+<td>
+<pre>
+{
+    "data": {
+        "data": [
+            {
+                "id": 2,
+                "name": "category 2",
+                "description": "category 2",
+                "created_at": "2022-10-10T10:10:18.000000Z",
+                "updated_at": "2022-10-18T12:03:23.000000Z"
+            }
+        ]
+    },
+    "message": "",
+    "code": 200,
+    "errors": []
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Format error</th>
+<td>
+<pre>
+{
+    "data": "",
+    "message": "fail",
+    "code": 404,
+    "errors": "object not found"
+}
+{
+    "data": "",
+    "message": "fail",
+    "code": 405,
+    "errors": "Method Not Allowed"
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Vaildation</th>
+<td>No need to vaildation</td>
+</tr>
+</table>
 
-## Learning Laravel
+___
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Store
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<table>
+<tr>
+<th style="text-align:start">use</th>
+<td>add new category</td>
+</tr>
+<tr>
+<th style="text-align:start">parameter</th>
+<td>No need</td>
+</tr>
+<tr>
+<th style="text-align:start">method</th>
+<td>POST</td>
+</tr>
+<tr>
+<th style="text-align:start">url</th>
+<td>api/categories</td>
+</tr>
+<tr>
+<th style="text-align:start">Format response success</th>
+<td>
+<pre>
+{
+    "data": {
+        "id": 60,
+        "name": "category 50",
+        "description": null,
+        "created_at": "2022-11-01T12:43:54.000000Z",
+        "updated_at": "2022-11-01T12:43:54.000000Z"
+    },
+    "message": "success",
+    "code": 201,
+    "errors": ""
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Format error</th>
+<td>
+<pre>
+{
+    "data": "",
+    "message": "fail",
+    "code": 404,
+    "errors": "object not found"
+}
+{
+    "data": "",
+    "message": "fail",
+    "code": 405,
+    "errors": "Method Not Allowed"
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Vaildation</th>
+<td>
+<pre>
+{
+    "data": "",
+    "message": "fail",
+    "code": 422,
+    "errors": {
+        "name": [
+            "The name field is required."
+        ]
+    }
+}
+</pre>
+</td>
+</tr>
+</table>
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+___
 
-### Premium Partners
+### Update
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+<table>
+<tr>
+<th style="text-align:start">use</th>
+<td>update category that is selected</td>
+</tr>
+<tr>
+<th style="text-align:start">parameter</th>
+<td>need</td>
+</tr>
+<tr>
+<th style="text-align:start">method</th>
+<td>POST</td>
+</tr>
+<tr>
+<th style="text-align:start">url</th>
+<td>api/categories/{category}</td>
+</tr>
+<tr>
+<th style="text-align:start">Format response success</th>
+<td>
+<pre>
+{
+    "data": {
+        "id": 2,
+        "name": "category",
+        "description": "category 2",
+        "created_at": "2022-10-10T10:10:18.000000Z",
+        "updated_at": "2022-11-01T12:46:51.000000Z"
+    },
+    "message": "success",
+    "code": 202,
+    "errors": ""
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Format error</th>
+<td>
+<pre>
+{
+    "data": "",
+    "message": "fail",
+    "code": 404,
+    "errors": "object not found"
+}
+{
+    "data": "",
+    "message": "fail",
+    "code": 405,
+    "errors": "Method Not Allowed"
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Vaildation</th>
+<td>
+<pre>
+{
+    "data": "",
+    "message": "fail",
+    "code": 422,
+    "errors": {
+        "name": [
+            "The name field is required."
+        ]
+    }
+}
+</pre>
+</td>
+</tr>
+</table>
 
-## Contributing
+___
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Destroy
 
-## Code of Conduct
+<table>
+<tr>
+<th style="text-align:start">use</th>
+<td>delete category that is selected</td>
+</tr>
+<tr>
+<th style="text-align:start">parameter</th>
+<td>No need</td>
+</tr>
+<tr>
+<th style="text-align:start">method</th>
+<td>DELETE</td>
+</tr>
+<tr>
+<th style="text-align:start">url</th>
+<td>api/categories/{category}</td>
+</tr>
+<tr>
+<th style="text-align:start">Format response success</th>
+<td>
+<pre>
+{
+    "data": {
+        "id": 31,
+        "name": "h",
+        "description": "1",
+        "created_at": "2022-10-31T18:00:06.000000Z",
+        "updated_at": "2022-10-31T18:00:06.000000Z"
+    },
+    "message": "deleted",
+    "code": 204,
+    "errors": ""
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Format error</th>
+<td>
+<pre>
+{
+    "data": "",
+    "message": "fail",
+    "code": 404,
+    "errors": "object not found"
+}
+{
+    "data": "",
+    "message": "fail",
+    "code": 405,
+    "errors": "Method Not Allowed"
+}
+{
+    "data": "",
+    "message": "fail",
+    "code": 204,
+    "errors": "not found this category id"
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Vaildation</th>
+<td>No need to vaildation</td>
+</tr>
+</table>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+___
 
-## Security Vulnerabilities
+### Show
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+<table>
+<tr>
+<th style="text-align:start">use</th>
+<td>show category that is selected</td>
+</tr>
+<tr>
+<th style="text-align:start">parameter</th>
+<td>No need</td>
+</tr>
+<tr>
+<th style="text-align:start">method</th>
+<td>GET</td>
+</tr>
+<tr>
+<th style="text-align:start">url</th>
+<td>api/categories/{category}</td>
+</tr>
+<tr>
+<th style="text-align:start">Format response success</th>
+<td>
+<pre>
+{
+    "data": {
+        "data": [
+            {
+                "id": 1,
+                "name": "product 1",
+                "description": "product 1",
+                "price": 6000,
+                "offer": 1000,
+                "image": "images/product//202211021755about.webp",
+                "available": "yes",
+                "category_id": 1,
+                "created_at": "2022-11-02T16:45:51.000000Z",
+                "updated_at": "2022-11-02T17:55:25.000000Z"
+            }
+        ]
+    },
+    "message": "",
+    "code": 200,
+    "errors": []
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Format error</th>
+<td>
+<pre>
+{
+    "data": "",
+    "message": "fail",
+    "code": 404,
+    "errors": "object not found"
+}
+{
+    "data": "",
+    "message": "fail",
+    "code": 405,
+    "errors": "Method Not Allowed"
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Vaildation</th>
+<td>No need to vaildation</td>
+</tr>
+</table>
 
-## License
+___
+## Products:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Index
+
+<table>
+<tr>
+<th style="text-align:start">use</th>
+<td>get all products</td>
+</tr>
+<tr>
+<th style="text-align:start">parameter</th>
+<td>No need</td>
+</tr>
+<tr>
+<th style="text-align:start">method</th>
+<td>GET</td>
+</tr>
+<tr>
+<th style="text-align:start">url</th>
+<td>api/products</td>
+</tr>
+<tr>
+<th style="text-align:start">Format response success</th>
+<td>
+<pre>
+{
+    "data": {
+        "data": [
+            {
+                "id": 111,
+                "name": "product 1",
+                "description": "product",
+                "price": 6000,
+                "offer": 3000,
+                "image": "images/product//202210181231back-2_1627326624.webp",
+                "available": "yes",
+                "category_id": 2,
+                "created_at": "2022-10-18T12:31:13.000000Z",
+                "updated_at": "2022-10-18T12:31:13.000000Z"
+            }
+        ]
+    },
+    "message": "",
+    "code": 200,
+    "errors": []
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Format error</th>
+<td>
+<pre>
+{
+    "data": "",
+    "message": "fail",
+    "code": 404,
+    "errors": "object not found"
+}
+{
+    "data": "",
+    "message": "fail",
+    "code": 405,
+    "errors": "Method Not Allowed"
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Vaildation</th>
+<td>No need to vaildation</td>
+</tr>
+</table>
+
+___
+
+### Store
+
+<table>
+<tr>
+<th style="text-align:start">use</th>
+<td>add new product</td>
+</tr>
+<tr>
+<th style="text-align:start">parameter</th>
+<td>No need</td>
+</tr>
+<tr>
+<th style="text-align:start">method</th>
+<td>POST</td>
+</tr>
+<tr>
+<th style="text-align:start">url</th>
+<td>api/products</td>
+</tr>
+<tr>
+<th style="text-align:start">Format response success</th>
+<td>
+<pre>
+{
+    "data": {
+        "id": 322,
+        "name": "product 5555",
+        "description": "product 5555",
+        "price": "555",
+        "offer": "100",
+        "image": {},
+        "available": "yes",
+        "category_id": "18",
+        "created_at": "2022-11-01T13:08:16.000000Z",
+        "updated_at": "2022-11-01T13:08:16.000000Z"
+    },
+    "message": "success",
+    "code": 201,
+    "errors": ""
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Format error</th>
+<td>
+<pre>
+{
+    "data": "",
+    "message": "fail",
+    "code": 404,
+    "errors": "object not found"
+}
+{
+    "data": "",
+    "message": "fail",
+    "code": 405,
+    "errors": "Method Not Allowed"
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Vaildation</th>
+<td>
+<pre>
+{
+    "data": "",
+    "message": "fail",
+    "code": 422,
+    "errors": {
+        "name": [
+            "The name field is required."
+        ],
+        "description": [
+            "The description field is required."
+        ],
+        "image": [
+            "The image field is required."
+        ],
+        "price": [
+            "The price field is required."
+        ],
+        "offer": [
+            "The offer field is required."
+        ],
+        "available": [
+            "The available field is required."
+        ],
+        "category_id": [
+            "The category id field is required."
+        ]
+    }
+}
+</pre>
+</td>
+</tr>
+</table>
+
+
+___
+
+### Update
+
+<table>
+<tr>
+<th style="text-align:start">use</th>
+<td>update product that is selected</td>
+</tr>
+<tr>
+<th style="text-align:start">parameter</th>
+<td>need</td>
+</tr>
+<tr>
+<th style="text-align:start">method</th>
+<td>POST</td>
+</tr>
+<tr>
+<th style="text-align:start">url</th>
+<td>api/products/{product}</td>
+</tr>
+<tr>
+<th style="text-align:start">Format response success</th>
+<td>
+<pre>
+{
+    "data": {
+        "id": 319,
+        "name": "product 9999",
+        "description": "product 9999",
+        "price": "888",
+        "offer": "100",
+        "image": "images/product//202211011151back-2_1627326624.webp",
+        "available": "yes",
+        "category_id": "8",
+        "created_at": "2022-11-01T11:51:23.000000Z",
+        "updated_at": "2022-11-01T13:10:11.000000Z"
+    },
+    "message": "success",
+    "code": 202,
+    "errors": ""
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Format error</th>
+<td>
+<pre>
+{
+    "data": "",
+    "message": "fail",
+    "code": 404,
+    "errors": "object not found"
+}
+
+
+{
+    "data": "",
+    "message": "fail",
+    "code": 405,
+    "errors": "Method Not Allowed"
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Vaildation</th>
+<td>
+<pre>
+{
+    "data": "",
+    "message": "fail",
+    "code": 422,
+    "errors": {
+        "name": [
+            "The name field is required."
+        ],
+        "description": [
+            "The description field is required."
+        ],
+        "price": [
+            "The price field is required."
+        ],
+        "offer": [
+            "The offer field is required."
+        ],
+        "available": [
+            "The available field is required."
+        ],
+        "category_id": [
+            "The category id field is required."
+        ]
+    }
+}
+</pre>
+</td>
+</tr>
+</table>
+
+___
+
+### Destroy
+
+<table>
+<tr>
+<th style="text-align:start">use</th>
+<td>delete product that is selected</td>
+</tr>
+<tr>
+<th style="text-align:start">parameter</th>
+<td>No need</td>
+</tr>
+<tr>
+<th style="text-align:start">method</th>
+<td>DELETE</td>
+</tr>
+<tr>
+<th style="text-align:start">url</th>
+<td>api/products/{product}</td>
+</tr>
+<tr>
+<th style="text-align:start">Format response success</th>
+<td>
+<pre>
+{
+    "data": {
+        "id": 321,
+        "name": "product 5555",
+        "description": "product 5555",
+        "price": 555,
+        "offer": 100,
+        "image": "images/product//202211011308back-2_1627326624.webp",
+        "available": "yes",
+        "category_id": 18,
+        "created_at": "2022-11-01T13:08:16.000000Z",
+        "updated_at": "2022-11-01T13:08:16.000000Z"
+    },
+    "message": "deleted",
+    "code": 204,
+    "errors": ""
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Format error</th>
+<td>
+<pre>
+{
+    "data": "",
+    "message": "fail",
+    "code": 404,
+    "errors": "object not found"
+}
+{
+    "data": "",
+    "message": "fail",
+    "code": 405,
+    "errors": "Method Not Allowed"
+}
+{
+    "data": "",
+    "message": "fail",
+    "code": 204,
+    "errors": "not found this product id"
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Vaildation</th>
+<td>No need to vaildation</td>
+</tr>
+</table>
+
+___
+
+### Show
+
+<table>
+<tr>
+<th style="text-align:start">use</th>
+<td>show product that is selected</td>
+</tr>
+<tr>
+<th style="text-align:start">parameter</th>
+<td>No need</td>
+</tr>
+<tr>
+<th style="text-align:start">method</th>
+<td>GET</td>
+</tr>
+<tr>
+<th style="text-align:start">url</th>
+<td>api/products/{product}</td>
+</tr>
+<tr>
+<th style="text-align:start">Format response success</th>
+<td>
+<pre>
+{
+    "data": {
+        "id": 319,
+        "name": "product 9999",
+        "description": "product 9999",
+        "price": 888,
+        "offer": 100,
+        "image": "images/product//202211011151back-2_1627326624.webp",
+        "available": "yes",
+        "category_id": 8,
+        "created_at": "2022-11-01T11:51:23.000000Z",
+        "updated_at": "2022-11-01T13:10:11.000000Z"
+    },
+    "message": "",
+    "code": 200,
+    "errors": []
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Format error</th>
+<td>
+<pre>
+{
+    "data": "",
+    "message": "fail",
+    "code": 404,
+    "errors": "object not found"
+}
+{
+    "data": "",
+    "message": "fail",
+    "code": 405,
+    "errors": "Method Not Allowed"
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Vaildation</th>
+<td>No need to vaildation</td>
+</tr>
+</table>
+
+___
+## Actions:
+
+### Search about product by name
+
+<table>
+<tr>
+<th style="text-align:start">use</th>
+<td>get product by name</td>
+</tr>
+<tr>
+<th style="text-align:start">parameter</th>
+<td>need</td>
+</tr>
+<tr>
+<th style="text-align:start">method</th>
+<td>GET</td>
+</tr>
+<tr>
+<th style="text-align:start">url</th>
+<td>api/searchproductnames</td>
+</tr>
+<tr>
+<th style="text-align:start">Format response success</th>
+<td>
+<pre>
+{
+    "data": {
+        "data": [
+            {
+                "id": 117,
+                "name": "product 4",
+                "description": "product",
+                "price": 6000,
+                "offer": 3000,
+                "image": "images/product//202210181231back-2_1627326624.webp",
+                "available": "yes",
+                "category_id": 2,
+                "created_at": "2022-10-18T12:31:37.000000Z",
+                "updated_at": "2022-10-18T12:31:37.000000Z"
+            }
+        ]
+    },
+    "message": "success",
+    "code": 200,
+    "errors": ""
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Format error</th>
+<td>
+<pre>
+{
+    "data": "",
+    "message": "fail",
+    "code": 404,
+    "errors": "object not found"
+}
+{
+    "data": "",
+    "message": "fail",
+    "code": 405,
+    "errors": "Method Not Allowed"
+}
+{
+    "data": {
+        "data": []
+    },
+    "message": "success",
+    "code": 200,
+    "errors": ""
+}
+</pre>
+</td>
+</tr>
+<tr>
+<td> format not found data </td>
+<td>
+<pre>
+{
+    "data": [],
+    "message": "not found data",
+    "code": 404,
+    "errors": ""
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Vaildation</th>
+<td>
+<pre>
+{
+    "data": "",
+    "message": "fail",
+    "code": 422,
+    "errors": {
+        "name": [
+            "The name must be at least 3 characters."
+        ]
+    }
+}
+</pre>
+</td>
+</tr>
+</table>
+
+___
+
+### View products according to category
+
+<table>
+<tr>
+<th style="text-align:start">use</th>
+<td>get product by category</td>
+</tr>
+<tr>
+<th style="text-align:start">parameter</th>
+<td>no need</td>
+</tr>
+<tr>
+<th style="text-align:start">method</th>
+<td>GET</td>
+</tr>
+<tr>
+<th style="text-align:start">url</th>
+<td>api/productsaccordingcategory/{cate_id}</td>
+</tr>
+<tr>
+<th style="text-align:start">Format response success</th>
+<td>
+<pre>
+{
+    "data": {
+        "data": [
+             {
+                "id": 131,
+                "name": "product 1",
+                "description": "product",
+                "price": 6000,
+                "offer": 3000,
+                "image": "images/product//202210181233back-2_1627326624.webp",
+                "available": "yes",
+                "category_id": 4,
+                "created_at": "2022-10-18T12:33:55.000000Z",
+                "updated_at": "2022-10-18T12:33:55.000000Z"
+            }
+        ]
+    },
+    "message": "success",
+    "code": 200,
+    "errors": ""
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Format error</th>
+<td>
+<pre>
+{
+    "data": "",
+    "message": "fail",
+    "code": 404,
+    "errors": "object not found"
+}
+{
+    "data": "",
+    "message": "fail",
+    "code": 405,
+    "errors": "Method Not Allowed"
+}
+{
+    "data": {
+        "data": []
+    },
+    "message": "",
+    "code": 200,
+    "errors": []
+}
+</pre>
+</td>
+</tr>
+<tr>
+<td>format not found data</td>
+<td>
+<pre>
+{
+    "data": [],
+    "message": "not found data",
+    "code": 404,
+    "errors": ""
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Vaildation</th>
+<td>No need to vaildation</td>
+</tr>
+</table>
+
+___
+
+### Filter products
+
+<table>
+<tr>
+<th style="text-align:start">use</th>
+<td>get product by name and min price and max price and category</td>
+</tr>
+<tr>
+<th style="text-align:start">parameter</th>
+<td>need</td>
+</tr>
+<tr>
+<th style="text-align:start">method</th>
+<td>GET</td>
+</tr>
+<tr>
+<th style="text-align:start">url</th>
+<td>api/filterproducts</td>
+</tr>
+<tr>
+<th style="text-align:start">Format response success</th>
+<td>
+<pre>
+{
+    "data": {
+        "data": [
+            {
+                "id": 137,
+                "name": "product 4",
+                "description": "product",
+                "price": 6000,
+                "offer": 3000,
+                "image": "images/product//202210181234back-2_1627326624.webp",
+                "available": "yes",
+                "category_id": 4,
+                "created_at": "2022-10-18T12:34:08.000000Z",
+                "updated_at": "2022-10-18T12:34:08.000000Z"
+            }
+        ]
+    },
+    "message": "success",
+    "code": 200,
+    "errors": ""
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Format error</th>
+<td>
+<pre>
+{
+    "data": "",
+    "message": "fail",
+    "code": 404,
+    "errors": "object not found"
+}
+{
+    "data": "",
+    "message": "fail",
+    "code": 405,
+    "errors": "Method Not Allowed"
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Format response Not found data</th>
+<td>
+<pre>
+{
+    "data": [],
+    "message": "not found data",
+    "code": 404,
+    "errors": ""
+}
+</pre>
+</td>
+</tr>
+<tr>
+<th style="text-align:start">Vaildation</th>
+<td>
+<pre>
+{
+    "data": "",
+    "message": "fail",
+    "code": 422,
+    "errors": {
+        "min_price": [
+            "The min price format is invalid."
+        ],
+        "max_price": [
+            "The max price format is invalid."
+        ],
+        "category_id": [
+            "The category id must not be greater than 250 characters."
+        ]
+    }
+}
+</pre>
+</td>
+</tr>
+</table>
+
