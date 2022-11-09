@@ -15,12 +15,14 @@ class CartController extends Controller
     use ValidatorRequest;
     use GetQuantity;
     use GetData;
+
+
     public function index(){
-        $cart=Cart::where('user_id',Auth::user()->id)->paginate();
-        if(empty($cart->total())){
+        $cart=Cart::where('user_id',Auth::user()->id)->get();
+        if(empty($cart)){
             return $this->response('','not found data',404,'');
         }else{
-            return $this->response(CartResource::collection($cart)->response()->getData(true),'');
+            return $this->response(CartResource::collection($cart),'');
         }
     }
 
@@ -42,6 +44,8 @@ class CartController extends Controller
             }
         }
     }
+
+
     public function UpdateProductInCart(Request $request,Cart $cart){
         if(!empty($cart)){
             $validator = Validator::make($request->all(),$this->ValidationUpdateProductInCart());
@@ -57,6 +61,8 @@ class CartController extends Controller
             return $this->response('','The cart is empty',404,'');
         }
     }
+
+
     public function DeleteFromCart(Cart $cart){
         if($cart->delete()){
             return $this->response(new CartResource($cart),'deleted',204,'');
@@ -64,6 +70,8 @@ class CartController extends Controller
             return $this->response('','fail',204,'not found this category id');
         }
     }
+
+
     public function DeleteFromCartAll(){
         $cart=Cart::where('user_id',Auth::user()->id)->get();
         if($cart->each->delete()){

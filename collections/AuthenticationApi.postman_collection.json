@@ -8,9 +8,27 @@
 	"item": [
 		{
 			"name": "register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
-					"type": "bearer"
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
 				},
 				"method": "POST",
 				"header": [
@@ -30,7 +48,7 @@
 						},
 						{
 							"key": "email",
-							"value": "mo@mo.com55",
+							"value": "mo@mo.com1",
 							"type": "text"
 						},
 						{
@@ -235,7 +253,14 @@
 			"name": "login",
 			"request": {
 				"auth": {
-					"type": "bearer"
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
 				},
 				"method": "POST",
 				"header": [
@@ -444,6 +469,16 @@
 		{
 			"name": "logout",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [
 					{
@@ -453,7 +488,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{url}}auth/logout",
+					"raw": "{{url}}auth/logout?token={{token}}",
 					"host": [
 						"{{url}}auth"
 					],
@@ -463,8 +498,7 @@
 					"query": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY2NzY3MDQxMiwiZXhwIjoxNjY3Njc0MDEyLCJuYmYiOjE2Njc2NzA0MTIsImp0aSI6IktYdVpzS0pwSjhCNDRvSWwiLCJzdWIiOjUsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.mUMSKc_rqTsP6mtLalIurtQ9r_OpNLlk-N1_dQkVkYs",
-							"disabled": true
+							"value": "{{token}}"
 						}
 					]
 				}
@@ -618,6 +652,16 @@
 		{
 			"name": "refresh",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [
 					{
@@ -627,7 +671,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{url}}auth/refresh?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY2NzY2OTk0MywiZXhwIjoxNjY3NjczNTQzLCJuYmYiOjE2Njc2Njk5NDMsImp0aSI6InpPN3FLNzdZN2lYanFjWjMiLCJzdWIiOjUsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.5wUKyaKGG4qKieP8k6CbxMR1BWFW90f452jpRa4n3s4",
+					"raw": "{{url}}auth/refresh?token={{token}}",
 					"host": [
 						"{{url}}auth"
 					],
@@ -637,7 +681,7 @@
 					"query": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY2NzY2OTk0MywiZXhwIjoxNjY3NjczNTQzLCJuYmYiOjE2Njc2Njk5NDMsImp0aSI6InpPN3FLNzdZN2lYanFjWjMiLCJzdWIiOjUsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.5wUKyaKGG4qKieP8k6CbxMR1BWFW90f452jpRa4n3s4"
+							"value": "{{token}}"
 						}
 					]
 				}

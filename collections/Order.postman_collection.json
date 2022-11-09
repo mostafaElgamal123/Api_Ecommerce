@@ -9,6 +9,16 @@
 		{
 			"name": "order",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [
 					{
@@ -48,14 +58,14 @@
 					]
 				},
 				"url": {
-					"raw": "{{url}}order?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY2NzgxMDgwOCwiZXhwIjoxNjY3ODE0NDA4LCJuYmYiOjE2Njc4MTA4MDgsImp0aSI6IjNRNlNaMnMzMjB5NVFXSXIiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.L79H9V2S51sUx-My0wR47TRPRioRvDjmb3PSDeA8YRc",
+					"raw": "{{url}}order?token={{token}}",
 					"host": [
 						"{{url}}order"
 					],
 					"query": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY2NzgxMDgwOCwiZXhwIjoxNjY3ODE0NDA4LCJuYmYiOjE2Njc4MTA4MDgsImp0aSI6IjNRNlNaMnMzMjB5NVFXSXIiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.L79H9V2S51sUx-My0wR47TRPRioRvDjmb3PSDeA8YRc"
+							"value": "{{token}}"
 						}
 					]
 				}
@@ -368,6 +378,16 @@
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [
 					{
@@ -381,14 +401,14 @@
 					"formdata": []
 				},
 				"url": {
-					"raw": "{{url}}getorderdata?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY2NzgyOTI0OCwiZXhwIjoxNjY3ODMyODQ4LCJuYmYiOjE2Njc4MjkyNDgsImp0aSI6IkZzTks2RjIxYlpleEJKcnYiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.4VNjlCZLF9U1nAKl_jhJ8-rp-HXpKM9He2vf57F4Sqw",
+					"raw": "{{url}}getorderdata?token={{token}}",
 					"host": [
 						"{{url}}getorderdata"
 					],
 					"query": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY2NzgyOTI0OCwiZXhwIjoxNjY3ODMyODQ4LCJuYmYiOjE2Njc4MjkyNDgsImp0aSI6IkZzTks2RjIxYlpleEJKcnYiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.4VNjlCZLF9U1nAKl_jhJ8-rp-HXpKM9He2vf57F4Sqw"
+							"value": "{{token}}"
 						}
 					]
 				}

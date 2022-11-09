@@ -16,31 +16,23 @@ class OrderController extends Controller
     use GetTotalPrice;
     use GetData;
     use UpdateQuantity;
+
+
     public function Order(Request $request){
         $cart=Cart::where('user_id',Auth::user()->id)->get();
-        if(count($cart)>0){
+        if(count($cart)){
             $validator = Validator::make($request->all(),$this->ValidationOrder());
             if ($validator->fails()) {
                 return $this->response('','fail',422,$validator->errors());
             }else{
                 $order=Order::create($this->getdataorder($request,$cart));
-                if(!empty($order)){
                     $orderid=Order::where('user_id',Auth::user()->id)->first();
                     foreach ($cart as $productId => $item){
-                        if (empty($item)) {
-                            continue;
-                        }
-                        if(!empty($orderid)){
-                            Order_Product::Create($this->getdataorderproduct($orderid,$item));
-                        }
-                        $product=Product::where('id',$item->product_id)->first();
-                        $this->updatequantityinproduct($product,$item);
+                        Order_Product::Create($this->getdataorderproduct($orderid,$item));
+                        $this->updatequantityinproduct($item);
                     }
-                    if(!empty($order)){
-                        $cart->each->delete();
-                    }
-                }
-                return $this->response(new OrdersResource($order),'success',202,'');
+                    $cart->each->delete();
+                    return $this->response(new OrdersResource($order),'success',202,'');
             }
         }else{
             return $this->response('','Your cart is empty',422,'');
